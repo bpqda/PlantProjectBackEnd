@@ -3,6 +3,7 @@ package com.example.plantproject;
 import java.util.List;
 
 import com.example.plantproject.entity.PlantTip;
+import com.example.plantproject.planttip.PlantTipsRepositoryImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlantTipController {
 
     @Autowired
-    private PlantTipRepository repository;
+    private PlantTipsRepositoryImpl repository;
 
     @RequestMapping(value = "/create", method=RequestMethod.PUT, consumes="text/plain")
     public int createPlantTip(@RequestBody String param){
