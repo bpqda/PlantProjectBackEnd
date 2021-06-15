@@ -3,7 +3,6 @@ package com.example.plantproject;
 import java.util.List;
 
 import com.example.plantproject.entity.PlantTip;
-import com.example.plantproject.planttip.PlantTips;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("database")
 public class PlantTipController {
 
     @Autowired
-    private PlantTips repository;
+    private PlantTipsRepository repository;
 
     @RequestMapping(value = "/create", method=RequestMethod.PUT, consumes="text/plain")
     public int createPlantTip(@RequestBody String param){
@@ -73,7 +71,7 @@ public class PlantTipController {
         return repository.getPlantTip(name);
     }
 
-    @RequestMapping(value = "/getallplants", method=RequestMethod.GET)
+        @RequestMapping(value = "/getallplants", method=RequestMethod.GET)
     public List<PlantTip> getPlantTips(){
         return repository.getPlantTips();
     }
